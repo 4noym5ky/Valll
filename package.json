@@ -1,86 +1,58 @@
 {
-  "name": "@thi.ng/bitstream",
-  "version": "2.2.36",
-  "description": "ES6 iterator based read/write bit streams with support for variable word widths",
+  "name": "@wasm-audio-decoders/ogg-vorbis",
+  "version": "0.1.14",
+  "description": "Web Assembly streaming Ogg Vorbis decoder",
   "type": "module",
-  "module": "./index.js",
-  "typings": "./index.d.ts",
+  "main": "./index.js",
+  "exports": {
+    "types": "./types.d.ts",
+    "default": "./index.js"
+  },
   "sideEffects": false,
+  "types": "types.d.ts",
+  "files": [
+    "index.js",
+    "types.d.ts",
+    "src/EmscriptenWasm.js",
+    "src/OggVorbisDecoder.js",
+    "src/OggVorbisDecoderWebWorker.js",
+    "dist/ogg-vorbis-decoder.min.js",
+    "dist/ogg-vorbis-decoder.min.js.map"
+  ],
+  "keywords": [
+    "Vorbis",
+    "Ogg",
+    "audio",
+    "decoder",
+    "multichannel",
+    "surround",
+    "stream",
+    "streams",
+    "libvorbis",
+    "Web Assembly",
+    "Wasm",
+    "Web Worker"
+  ],
+  "author": {
+    "name": "Ethan Halsall",
+    "email": "ethanhalsall@pm.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eshaz/wasm-audio-decoders/issues"
+  },
+  "homepage": "https://github.com/eshaz/wasm-audio-decoders/tree/master/src/ogg-vorbis",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thi-ng/umbrella.git"
+    "url": "git+https://github.com/eshaz/wasm-audio-decoders.git",
+    "directory": "src/ogg-vorbis"
   },
-  "homepage": "https://github.com/thi-ng/umbrella/tree/develop/packages/bitstream#readme",
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/postspectacular"
-    },
-    {
-      "type": "patreon",
-      "url": "https://patreon.com/thing_umbrella"
-    }
-  ],
-  "author": "Karsten Schmidt (https://thi.ng)",
-  "license": "Apache-2.0",
-  "scripts": {
-    "build": "yarn build:esbuild && yarn build:decl",
-    "build:decl": "tsc --declaration --emitDeclarationOnly",
-    "build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
-    "clean": "rimraf --glob '*.js' '*.d.ts' '*.map' doc",
-    "doc": "typedoc --excludePrivate --excludeInternal --out doc src/index.ts",
-    "doc:ae": "mkdir -p .ae/doc .ae/temp && api-extractor run --local --verbose",
-    "doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
-    "pub": "yarn npm publish --access public",
-    "test": "bun test"
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/eshaz"
   },
   "dependencies": {
-    "@thi.ng/errors": "^2.4.6"
-  },
-  "devDependencies": {
-    "@microsoft/api-extractor": "^7.38.3",
-    "esbuild": "^0.19.8",
-    "rimraf": "^5.0.5",
-    "tools": "^0.0.1",
-    "typedoc": "^0.25.4",
-    "typescript": "^5.3.2"
-  },
-  "keywords": [
-    "binary",
-    "datastructure",
-    "iterator",
-    "stream",
-    "typescript"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=12.7"
-  },
-  "files": [
-    "./*.js",
-    "./*.d.ts"
-  ],
-  "exports": {
-    ".": {
-      "default": "./index.js"
-    },
-    "./input": {
-      "default": "./input.js"
-    },
-    "./output": {
-      "default": "./output.js"
-    },
-    "./simple": {
-      "default": "./simple.js"
-    }
-  },
-  "thi.ng": {
-    "related": [
-      "range-coder",
-      "rle-pack"
-    ]
-  },
-  "gitHead": "5e7bafedfc3d53bc131469a28de31dd8e5b4a3ff\n"
+    "@wasm-audio-decoders/common": "9.0.4",
+    "codec-parser": "2.4.3"
+  }
 }

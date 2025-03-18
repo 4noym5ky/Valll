@@ -1,9 +1,8 @@
-export * from "./deferror.js";
-export * from "./assert.js";
-export * from "./ensure.js";
-export * from "./illegal-arguments.js";
-export * from "./illegal-arity.js";
-export * from "./illegal-state.js";
-export * from "./io.js";
-export * from "./out-of-bounds.js";
-export * from "./unsupported.js";
+import OggVorbisDecoder from "./src/OggVorbisDecoder.js";
+import OggVorbisDecoderWebWorker from "./src/OggVorbisDecoderWebWorker.js";
+import { assignNames } from "@wasm-audio-decoders/common";
+
+assignNames(OggVorbisDecoder, "OggVorbisDecoder");
+assignNames(OggVorbisDecoderWebWorker, "OggVorbisDecoderWebWorker");
+
+export { OggVorbisDecoder, OggVorbisDecoderWebWorker };
